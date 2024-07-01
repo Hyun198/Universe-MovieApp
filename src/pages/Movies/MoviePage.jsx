@@ -1,8 +1,12 @@
 import React from 'react'
-
+import { Outlet } from 'react-router-dom'
 const MoviePage = () => {
     return (
-        <div>MoviePage</div>
+        <div>
+            MoviePage
+            <Outlet />
+        </div>
+
     )
 }
 

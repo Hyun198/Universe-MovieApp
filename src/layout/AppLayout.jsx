@@ -1,5 +1,5 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 
 const AppLayout = () => {
     return (
@@ -7,8 +7,8 @@ const AppLayout = () => {
             <div className='navbar'>
                 <img src="https://cdn.freelogovectors.net/wp-content/uploads/2020/01/universe-logo.png" alt="logo" />
                 <ul>
-                    <li>Home</li>
-                    <li>Movies</li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/movies">Movies</Link></li>
                 </ul>
                 <div className="search-box">
                     <input type="text" placeholder='search...' />
