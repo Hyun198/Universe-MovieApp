@@ -16,6 +16,11 @@
     color: white;
     font-weight: bold;
     overflow-wrap: break-word;
+    text-align: center;
+}
+
+.title {
+    font-size: 25px;
 }
 
 .overlay:hover {
@@ -25,4 +30,11 @@
 
 .movie-card:hover {
     transform: scale(1.1) translateZ(20px);
+}
+
+.overlay-info {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
 }

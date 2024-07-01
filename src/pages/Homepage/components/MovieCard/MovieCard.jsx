@@ -13,14 +13,14 @@ const MovieCard = ({ movie }) => {
             className="movie-card"
         >
             <div className="overlay">
-                <h1>{movie.title}</h1>
+                <h1 className="title">{movie.title}</h1>
                 {movie.genre_ids.map((id) => (
                     <Badge bg="danger">{id}</Badge>
                 ))}
 
-                <div>
-                    <div>{movie.vote_average}</div>
-                    <div>{movie.popularity}</div>
+                <div className="overlay-info">
+                    <div>평점: {movie.vote_average.toFixed(1)}</div>
+                    <div>인기: {Math.round(movie.popularity * 10) / 10}</div>
                     <div>{movie.adult ? "over18" : "under18"}</div>
                 </div>
             </div>
