@@ -1,5 +1,6 @@
 import React from 'react'
 import Banner from './components/Banner/Banner'
+import PopularMovieSlide from './components/PopularMovieSlide/PopularMovieSlide'
 
 
 //1.배너
@@ -12,6 +13,7 @@ const Homepage = () => {
     return (
         <div>
             <Banner />
+            <PopularMovieSlide />
         </div>
     )
 }
