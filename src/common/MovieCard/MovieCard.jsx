@@ -1,7 +1,24 @@
 import React from "react";
 import { Badge } from "react-bootstrap";
 import "./MovieCard.style.css";
+import { useMovieGenreQuery } from "../../hooks/useMovieGenre";
+
 const MovieCard = ({ movie }) => {
+
+    const { data: genreData } = useMovieGenreQuery()
+
+    const showGenre = (genreIdList) => {
+        if (!genreData) {
+            return [];
+        }//장르데이터가 없다면 아무것도 안보여줌
+        const genreNameList = genreIdList.map((id) => {
+            const genreObj = genreData.find((genre) => genre.id === id)
+            return genreObj.name;
+        })
+
+        return genreNameList
+    }
+
     return (
         <div
             style={{
@@ -14,7 +31,7 @@ const MovieCard = ({ movie }) => {
         >
             <div className="overlay">
                 <h1 className="title">{movie.title}</h1>
-                {movie.genre_ids.map((id) => (
+                {showGenre(movie.genre_ids).map((id) => (
                     <Badge bg="danger">{id}</Badge>
                 ))}
 
