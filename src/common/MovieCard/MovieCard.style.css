@@ -5,6 +5,7 @@
     background-size: cover;
     cursor: pointer;
     transition: 0.5s;
+    object-fit: cover;
 }
 
 .overlay {
@@ -19,6 +20,7 @@
     text-align: center;
     display: flex;
     flex-direction: column;
+
 }
 
 .title {
