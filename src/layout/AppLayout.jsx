@@ -3,11 +3,11 @@ import { Link, Outlet, useNavigate } from 'react-router-dom'
 
 const AppLayout = () => {
     const [keyword, setKeyword] = useState("");
-    const naviagte = useNavigate()
+    const navigate = useNavigate()
     const handleSearch = (event) => {
         event.preventDefault();
         //url을 바꿔주기
-        naviagte(`/movies?q=${keyword}`);
+        navigate(`/movies?q=${keyword}`);
         setKeyword("");
     }
 

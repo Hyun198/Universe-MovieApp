@@ -23,10 +23,10 @@ const MoviePage = () => {
     const [query, setQuery] = useSearchParams();
     const [page, setPage] = useState(1);
     const [sortOrder, setSortOrder] = useState('');
+
     const keyword = query.get("q");
 
     const { data, isLoading, error, isError } = useSearchMovieQuery({ keyword, page });
-    console.log("dddd", data);
 
     const handleSortMovies = (movies, order) => {
         switch (order) {
@@ -38,12 +38,24 @@ const MoviePage = () => {
                 return movies;
         }
     }
+    const getSortOrderLabel = () => {
+        switch (sortOrder) {
+            case 'popularity':
+                return '인기순';
+            case 'release_date':
+                return '최신순';
+            // Add other cases if there are more sort options
+            default:
+                return 'Sort';
+        }
+    }
+
 
     const handlePageClick = ({ selected }) => {
         setPage(selected + 1);
 
     }
-    console.log("page", page);
+
 
     if (isError) {
         return <Alert varients="danger">{error.message}</Alert>;
@@ -58,19 +70,19 @@ const MoviePage = () => {
         <Container>
             <Row className="all-side">
                 <Col className="left-side" lg={4} xs={12}>
+
                     <Dropdown >
                         <Dropdown.Toggle id="dropdown-basic">
-                            Sort
+                            {getSortOrderLabel()}
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>
                             <Dropdown.Item href="#/action-1" onClick={() => setSortOrder('popularity')}>인기순</Dropdown.Item>
                             <Dropdown.Item href="#/action-2" onClick={() => setSortOrder('release_date')}>최신순</Dropdown.Item>
-
                         </Dropdown.Menu>
-
-
                     </Dropdown>
+
+
                 </Col>
                 <Col className="right-side" lg={8} xs={12}>
                     <Row>
