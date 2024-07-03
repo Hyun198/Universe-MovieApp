@@ -17,10 +17,22 @@
     font-weight: bold;
     overflow-wrap: break-word;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .title {
     font-size: 25px;
+}
+
+.genre {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.movie-badge {
+    margin: 5px 5px;
+    padding: 10px;
 }
 
 .overlay:hover {
@@ -37,4 +49,8 @@
     flex-direction: column;
     padding: 10px;
 
+}
+
+.overlay-info div {
+    margin: 5px auto;
 }

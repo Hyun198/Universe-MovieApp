@@ -1,7 +1,16 @@
-import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, Outlet, useNavigate } from 'react-router-dom'
 
 const AppLayout = () => {
+    const [keyword, setKeyword] = useState("");
+    const naviagte = useNavigate()
+    const handleSearch = (event) => {
+        event.preventDefault();
+        //url을 바꿔주기
+        naviagte(`/movies?q=${keyword}`);
+        setKeyword("");
+    }
+
     return (
         <div className='app-layout'>
             <div className='navbar'>
@@ -11,8 +20,11 @@ const AppLayout = () => {
                     <li><Link to="/movies">Movies</Link></li>
                 </ul>
                 <div className="search-box">
-                    <input type="text" placeholder='search...' />
-                    <button type="submit">Search</button>
+                    <form onSubmit={handleSearch}>
+                        <input type="text" placeholder='search...' value={keyword} onChange={(event) => setKeyword(event.target.value)} />
+                        <button type="submit">Search</button>
+                    </form>
+
                 </div>
             </div>
             <Outlet />
