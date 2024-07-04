@@ -19,6 +19,7 @@ const AppLayout = () => {
                 <ul>
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/movies">Movies</Link></li>
+                    <li><Link to="/tvs">tv</Link></li>
                 </ul>
                 <div className="search-box">
                     <form onSubmit={handleSearch}>
