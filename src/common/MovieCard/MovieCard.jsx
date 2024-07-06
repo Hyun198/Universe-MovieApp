@@ -15,11 +15,14 @@ const MovieCard = ({ movie }) => {
         }//장르데이터가 없다면 아무것도 안보여줌
         const genreNameList = genreIdList.map((id) => {
             const genreObj = genreData.find((genre) => genre.id === id)
+
             return genreObj.name;
         })
 
         return genreNameList
     }
+
+
 
     const handleMoveToDetail = (id) => {
         navigate(`/movies/${id}`);

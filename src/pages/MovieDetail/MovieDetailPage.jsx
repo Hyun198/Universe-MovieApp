@@ -4,14 +4,14 @@ import { Alert } from "bootstrap";
 import { useParams } from 'react-router-dom'
 import { useMovieDetailQuery } from '../../hooks/useMovieDetail'
 import { useMovieGenreQuery } from '../../hooks/useMovieGenre';
+import './MovieDetailPage.style.css';
 
 const MovieDetailPage = () => {
     const { id } = useParams();
-    const { data: movie, error, isLoading, isError } = useMovieDetailQuery({ movie_id: id })
-
+    const { data: movie, error, isLoading, isError } = useMovieDetailQuery({ movie_id: id });
+    console.log("movie data: ", movie);
     const { data: genres } = useMovieGenreQuery();
-    console.log("movie: ", movie.genres)
-    console.log("gernes: ", genres);
+
     if (isError) {
         return <Alert varients="danger">{error.message}</Alert>;
     }
@@ -19,21 +19,18 @@ const MovieDetailPage = () => {
         return <h1>Loading...</h1>;
     }
 
-    const showGenre = (genreIdList) => {
-        console.log("ddd", genreIdList);
-        if (!genreIdList) {
+    const showGenre = (genreList) => {
+        if (!genres) {
             return [];
         }
-        const genreNameList = genreIdList.map((id) => {
-            console.log("id", id);
-            const genreName = genres.find((genre) => genre.id === id);
-            console.log(genreName);
-            return genreName;
+        const genreNameList = genreList.map((genre) => {
+            const genreObj = genres.find((g) => g.id === genre.id);
+            return genreObj ? genreObj.name : 'Unknown';
         });
         return genreNameList;
     };
 
-    console.log("result:", showGenre(movie.genres))
+    /* console.log("Genres: ", showGenre(movie.genres)); */
 
 
 
@@ -46,14 +43,19 @@ const MovieDetailPage = () => {
                 </Col>
                 <Col lg={8} xs={12}>
                     <div className='gerne-detail'>
-
+                        {showGenre(movie.genres).map((id) => (
+                            <Badge className="movie-badge" ># {id}</Badge>
+                        ))}
                     </div>
-                    <div>{movie.title}</div>
-                    <div>{movie.popularity}</div>
-                    <div>예산: ${movie.budget.toLocaleString()}</div>
-                    <div>줄거리: {movie.overview}</div>
-                    <div>개봉일: {movie.release_date}</div>
-                    <div>런타임: {movie.runtime}Min</div>
+                    <div className="movie-info">
+                        <div>{movie.title}</div>
+                        <div>{movie.popularity}</div>
+                        <div>예산: ${movie.budget.toLocaleString()}</div>
+                        <div>줄거리: {movie.overview}</div>
+                        <div>개봉일: {movie.release_date}</div>
+                        <div>런타임: {movie.runtime}Min</div>
+                    </div>
+
                 </Col>
             </Row>
 

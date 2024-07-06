@@ -17,9 +17,9 @@ const AppLayout = () => {
             <div className='navbar'>
                 <img src="https://cdn.freelogovectors.net/wp-content/uploads/2020/01/universe-logo.png" alt="logo" />
                 <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/movies">Movies</Link></li>
-                    <li><Link to="/tvs">tv</Link></li>
+                    <li><Link to="/"># Home</Link></li>
+                    <li><Link to="/movies"># Movies</Link></li>
+                    <li><Link to="/tvs"># tv</Link></li>
                 </ul>
                 <div className="search-box">
                     <form onSubmit={handleSearch}>
