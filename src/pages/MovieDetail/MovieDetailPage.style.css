@@ -16,3 +16,8 @@
     font-size: 18px;
     gap: 10px;
 }
+
+.movie-reviews {
+    background-color: #ddd;
+    color: black;
+}
