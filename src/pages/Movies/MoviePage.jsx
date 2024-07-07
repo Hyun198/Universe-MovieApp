@@ -65,7 +65,7 @@ const MoviePage = () => {
     }
 
     const sortedMovies = handleSortMovies([...data?.results], sortOrder);
-    console.log("sorted Movie:", sortedMovies);
+
     return (
         <Container>
             <Row className="all-side">

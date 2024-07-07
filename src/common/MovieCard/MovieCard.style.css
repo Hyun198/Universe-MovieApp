@@ -6,6 +6,7 @@
     cursor: pointer;
     transition: 0.5s;
     object-fit: cover;
+    margin: auto;
 }
 
 .overlay {
@@ -18,28 +19,27 @@
     font-weight: bold;
     overflow-wrap: break-word;
     text-align: center;
-    display: flex;
-    flex-direction: column;
 
 }
 
 .title {
     font-size: 25px;
+    text-align: center;
 }
 
 .genre {
     display: flex;
+    justify-content: flex-start;
     flex-wrap: wrap;
 }
 
 .movie-badge {
     margin: 5px 5px;
-    padding: 10px;
+    padding: 8px;
 }
 
 .overlay:hover {
     opacity: 1;
-
 }
 
 .movie-card:hover {

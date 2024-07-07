@@ -1,0 +1,16 @@
+.cast-card {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+    height: 100%;
+}
+
+.cast-profile {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    background-position: center;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    cursor: pointer;
+}

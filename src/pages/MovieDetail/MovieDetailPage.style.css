@@ -17,7 +17,33 @@
     gap: 10px;
 }
 
+.movie-overview {
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
 .movie-reviews {
-    background-color: #ddd;
-    color: black;
+    position: relative;
+}
+
+.movie-review {
+    border-bottom: 1px solid white;
+}
+
+.movie-review p {
+    padding-bottom: 15px;
+}
+
+.author {
+    position: absolute;
+    right: 0;
+}
+
+.toggleShow {
+    position: absolute;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    right: 0;
 }

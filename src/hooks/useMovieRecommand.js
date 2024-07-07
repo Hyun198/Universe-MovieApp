@@ -10,5 +10,6 @@ export const useMovieRecomandsQuery = ({ movie_id }) => {
         queryKey: ['movie-recommendations', movie_id],
         queryFn: () => fetchMovieRecomands({ movie_id }),
         select: (result) => result.data,
+        staleTime: 3000000,
     })
 }
