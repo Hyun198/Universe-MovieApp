@@ -13,6 +13,11 @@ import MovieCard from '../../common/MovieCard/MovieCard';
 
 import Carousel from "react-multi-carousel";
 import 'react-multi-carousel/lib/styles.css';
+import Modal from 'react-modal';
+import YouTube from 'react-youtube';
+import { useMovieVideoQuery } from '../../hooks/useMovieVideo';
+
+
 
 export const responsive = {
     desktop: {
@@ -32,16 +37,16 @@ export const responsive = {
 };
 
 const MovieDetailPage = () => {
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+
     const { id } = useParams();
-
     const [expandedReviewIds, setExpandedReviewIds] = useState({});
-
     const { data: movie, error, isLoading, isError } = useMovieDetailQuery({ movie_id: id });
     const { data: genres } = useMovieGenreQuery();
     const { data: credits } = useMovieCreditsQuery({ movie_id: id });
     const { data: reviews } = useMovieReviewQuery({ movie_id: id });
     const { data: recommands } = useMovieRecomandsQuery({ movie_id: id });
-
+    const { data: videos } = useMovieVideoQuery({ movie_id: id });
     if (isError) {
         return <Alert varients="danger">{error.message}</Alert>;
     }
@@ -81,6 +86,40 @@ const MovieDetailPage = () => {
         );
     }
 
+    const customModalStyles = {
+        overlay: {
+            backgroundColor: " rgba(0, 0, 0, 0.4)",
+            width: "100%",
+            height: "100vh",
+            zIndex: "10",
+            position: "fixed",
+            top: "0",
+            left: "0",
+        },
+        content: {
+            width: "1025px",
+            height: "600px",
+            zIndex: "150",
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            borderRadius: "10px",
+            boxShadow: "2px 2px 2px rgba(0, 0, 0, 0.25)",
+            backgroundColor: "black",
+            justifyContent: "center",
+            overflow: "hidden",
+        },
+    };
+
+
+
+    function openModal() {
+        setModalIsOpen(true);
+    }
+    function closeModal() {
+        setModalIsOpen(false);
+    }
 
     return (
         <Container>
@@ -95,7 +134,40 @@ const MovieDetailPage = () => {
                         ))}
                     </div>
                     <div className="movie-info">
-                        <div>{movie.title}</div>
+                        <div>{movie.title}
+                            <Badge className="trailer-button" onClick={openModal}>trailer</Badge>
+                            <Modal
+                                isOpen={modalIsOpen}
+                                onRequestClose={() => setModalIsOpen(false)}
+                                style={customModalStyles}
+                                ariaHideApp={false}
+                                contentLabel="Pop up Message"
+                                shouldCloseOnOverlayClick={false}
+                            >
+                                <button className='close-modal' onClick={closeModal}>X</button>
+                                <div>
+                                    <YouTube
+                                        videoId={videos?.results[0].key}
+                                        opts={{
+                                            width: "1015",
+                                            height: "540",
+                                            playerVars: {
+                                                autoplay: 1, //자동재생 O
+                                                rel: 0, //관련 동영상 표시하지 않음 (근데 별로 쓸모 없는듯..)
+                                                modestbranding: 1, // 컨트롤 바에 youtube 로고를 표시하지 않음
+                                            },
+                                        }}
+                                        //이벤트 리스너 
+                                        onEnd={(e) => { e.target.stopVideo(0); }}
+                                    />
+
+
+                                </div>
+
+                            </Modal>
+
+
+                        </div>
                         <div>{movie.popularity}</div>
                         <div>예산: ${movie.budget.toLocaleString()}</div>
                         <div className="movie-overview">줄거리<br></br>
