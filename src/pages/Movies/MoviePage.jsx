@@ -77,8 +77,8 @@ const MoviePage = () => {
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>
-                            <Dropdown.Item href="#/action-1" onClick={() => setSortOrder('popularity')}>인기순</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2" onClick={() => setSortOrder('release_date')}>최신순</Dropdown.Item>
+                            <Dropdown.Item onClick={() => setSortOrder('popularity')}>인기순</Dropdown.Item>
+                            <Dropdown.Item onClick={() => setSortOrder('release_date')}>최신순</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
 

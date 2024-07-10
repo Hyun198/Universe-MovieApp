@@ -98,3 +98,10 @@ body {
   color: black;
   background-color: #2E6EE8;
 }
+
+.transition-group {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
