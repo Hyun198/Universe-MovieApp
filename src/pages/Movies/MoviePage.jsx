@@ -2,19 +2,12 @@ import React, { useState } from "react";
 import { useSearchMovieQuery } from "../../hooks/useSearchMovie";
 import { useSearchParams } from "react-router-dom";
 import { Alert } from "bootstrap";
-import { Col, Container, Row, Dropdown } from "react-bootstrap";
+import { Col, Container, Row, Dropdown, Badge } from "react-bootstrap";
 import MovieCard from '../../common/MovieCard/MovieCard';
 import './MoviePage.style.css'
 import ReactPaginate from 'react-paginate';
+import { useMovieGenreQuery } from "../../hooks/useMovieGenre";
 
-//경로 2가지
-//nav바에서 클릭해서 온 경우 => popular 영화들 보여주기
-//keyword를 입력해서 온 경우 => keword와 관련된 영화들을 보여줌
-
-//페이지네이션 설치
-//page state 만들기
-//페이지네이션 클릭할때마다 page바꿔주기
-//page값이 바뀔때마다 useSearchMovie에 page까지 넣어서 fetch
 
 //필터기능
 //장르 별로 검색, sort기능 구현
@@ -24,9 +17,14 @@ const MoviePage = () => {
     const [page, setPage] = useState(1);
     const [sortOrder, setSortOrder] = useState('');
 
+
+
     const keyword = query.get("q");
 
     const { data, isLoading, error, isError } = useSearchMovieQuery({ keyword, page });
+
+    const { data: genres } = useMovieGenreQuery();
+    console.log(genres);
 
     const handleSortMovies = (movies, order) => {
         switch (order) {
@@ -49,8 +47,6 @@ const MoviePage = () => {
                 return 'Sort';
         }
     }
-
-
     const handlePageClick = ({ selected }) => {
         setPage(selected + 1);
 
@@ -81,6 +77,14 @@ const MoviePage = () => {
                             <Dropdown.Item onClick={() => setSortOrder('release_date')}>최신순</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
+                    Gernes
+                    <div className="genre-list">
+                        {genres.map((genre) => (
+                            <h3><Badge>{genre.name}</Badge></h3>
+                        ))}
+
+                    </div>
+
 
 
                 </Col>
