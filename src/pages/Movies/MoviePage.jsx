@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSearchMovieQuery } from "../../hooks/useSearchMovie";
 import { useSearchParams } from "react-router-dom";
 import { Alert } from "bootstrap";
@@ -16,15 +16,13 @@ const MoviePage = () => {
     const [query, setQuery] = useSearchParams();
     const [page, setPage] = useState(1);
     const [sortOrder, setSortOrder] = useState('');
-
+    const [selectedGenre, setSelectedGenre] = useState('');
 
 
     const keyword = query.get("q");
 
-    const { data, isLoading, error, isError } = useSearchMovieQuery({ keyword, page });
-
+    const { data, isLoading, error, isError } = useSearchMovieQuery({ keyword, page, genre: selectedGenre });
     const { data: genres } = useMovieGenreQuery();
-    console.log(genres);
 
     const handleSortMovies = (movies, order) => {
         switch (order) {
@@ -35,6 +33,12 @@ const MoviePage = () => {
             default:
                 return movies;
         }
+    }
+
+    const handleGenreSort = (genre) => {
+        console.log(genre);
+        setSelectedGenre(genre.id);
+        setPage(1);
     }
     const getSortOrderLabel = () => {
         switch (sortOrder) {
@@ -47,10 +51,15 @@ const MoviePage = () => {
                 return 'Sort';
         }
     }
+
+
+
     const handlePageClick = ({ selected }) => {
         setPage(selected + 1);
 
     }
+
+
 
 
     if (isError) {
@@ -65,30 +74,37 @@ const MoviePage = () => {
     return (
         <Container>
             <Row className="all-side">
-                <Col className="left-side" lg={4} xs={12}>
+                <Col className="left-side" lg={4} xs={6}>
+                    Genres
+                    <Row>
+                        <Col xs={12}>
+                            <div className="genre-list">
+                                {genres?.map((genre) => (
+                                    <Badge key={genre.id} onClick={() => handleGenreSort(genre)}
+                                    >{genre.name}</Badge>
+                                ))}
+                            </div>
+                        </Col>
+                        <Col xs={12}>
+                            <Dropdown >
+                                <Dropdown.Toggle id="dropdown-basic">
+                                    {getSortOrderLabel()}
+                                </Dropdown.Toggle>
 
-                    <Dropdown >
-                        <Dropdown.Toggle id="dropdown-basic">
-                            {getSortOrderLabel()}
-                        </Dropdown.Toggle>
+                                <Dropdown.Menu>
+                                    <Dropdown.Item onClick={() => setSortOrder('popularity')}>인기순</Dropdown.Item>
+                                    <Dropdown.Item onClick={() => setSortOrder('release_date')}>최신순</Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
+                        </Col>
+                    </Row>
 
-                        <Dropdown.Menu>
-                            <Dropdown.Item onClick={() => setSortOrder('popularity')}>인기순</Dropdown.Item>
-                            <Dropdown.Item onClick={() => setSortOrder('release_date')}>최신순</Dropdown.Item>
-                        </Dropdown.Menu>
-                    </Dropdown>
-                    Gernes
-                    <div className="genre-list">
-                        {genres.map((genre) => (
-                            <h3><Badge>{genre.name}</Badge></h3>
-                        ))}
 
-                    </div>
 
 
 
                 </Col>
-                <Col className="right-side" lg={8} xs={12}>
+                <Col className="right-side" lg={8} xs={6}>
                     <Row>
                         {sortedMovies.map((movie, index) => (
                             <Col className="right-side-info" lg={3} xs={12} key={index}>

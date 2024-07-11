@@ -128,7 +128,7 @@ const MovieDetailPage = () => {
                     <img src={`https://media.themoviedb.org/t/p/w300_and_h450_bestv2${movie.poster_path}`} />
                 </Col>
                 <Col lg={8} xs={12}>
-                    <div className='gerne-detail'>
+                    <div className='genre-detail'>
                         {showGenre(movie.genres).map((id) => (
                             <Badge className="movie-badge" ># {id}</Badge>
                         ))}
