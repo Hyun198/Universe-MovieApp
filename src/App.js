@@ -31,7 +31,7 @@ function App() {
   const location = useLocation();
 
   return (
-    <div className="relative ">
+    <div className="relative">
       <TransitionGroup style={{ position: 'relative' }}>
         <Transition
           key={location.pathname}
@@ -44,7 +44,7 @@ function App() {
             <div
               style={{
                 ...getTransitionStyles[status],
-                backgroundColor: 'black', // 배경색을 검은색으로 설정
+
               }}
             >
               <Routes location={location}>

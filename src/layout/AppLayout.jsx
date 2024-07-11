@@ -15,9 +15,8 @@ const AppLayout = () => {
     return (
         <div className='app-layout'>
             <div className='navbar'>
-                <img src="https://cdn.freelogovectors.net/wp-content/uploads/2020/01/universe-logo.png" alt="logo" />
+                <Link to="/"><img src="https://cdn.freelogovectors.net/wp-content/uploads/2020/01/universe-logo.png" alt="logo" /></Link>
                 <ul>
-                    <li><Link to="/"># Home</Link></li>
                     <li><Link to="/movies"># Movies</Link></li>
                     <li><Link to="/tvs"># tv</Link></li>
                 </ul>
