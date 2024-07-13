@@ -1,0 +1,75 @@
+.tv-badge {
+    padding: 15px;
+    font-size: 16px;
+
+}
+
+.tv-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 10px;
+    margin: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 10px;
+    font-size: 18px;
+    gap: 10px;
+}
+
+.tv-overview {
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+.tv-reviews {
+    position: relative;
+}
+
+.tv-review {
+    border-bottom: 1px solid white;
+}
+
+.tv-review p {
+    padding-bottom: 15px;
+}
+
+.author {
+    position: absolute;
+    right: 0;
+}
+
+.toggleShow {
+    position: absolute;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    right: 0;
+}
+
+.trailer-button {
+    font-size: 1.2rem !important;
+    margin-left: 5px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.trailer-button:hover {
+    scale: 1.2;
+
+}
+
+.close-modal {
+    scale: 1.5;
+    color: white;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+}

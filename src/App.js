@@ -4,6 +4,8 @@ import AppLayout from './layout/AppLayout';
 import Homepage from './pages/Homepage/Homepage';
 import MoviePage from './pages/Movies/MoviePage';
 import MovieDetailPage from './pages/MovieDetail/MovieDetailPage';
+import TvPage from './pages/Tvs/TvPage';
+import TvDetailPage from './pages/TvDetail/TvDetailPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Transition, TransitionGroup } from 'react-transition-group';
@@ -53,6 +55,10 @@ function App() {
                   <Route path="/movies">
                     <Route index element={<MoviePage />} />
                     <Route path=":id" element={<MovieDetailPage />} />
+                  </Route>
+                  <Route path="/tvs">
+                    <Route index element={<TvPage />} />
+                    <Route path=':id' element={<TvDetailPage />} />
                   </Route>
                 </Route>
                 <Route path="*" element={<NotFoundPage />} />

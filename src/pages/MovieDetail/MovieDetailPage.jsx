@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import { Col, Container, Row, Badge } from 'react-bootstrap'
 import { Alert } from "bootstrap";
 import { useParams } from 'react-router-dom'
-import { useMovieDetailQuery } from '../../hooks/useMovieDetail'
-import { useMovieGenreQuery } from '../../hooks/useMovieGenre';
+import { useMovieDetailQuery } from '../../Moviehooks/useMovieDetail'
+import { useMovieGenreQuery } from '../../Moviehooks/useMovieGenre';
 import './MovieDetailPage.style.css';
-import { useMovieCreditsQuery } from '../../hooks/useMovieCredits';
-import { useMovieReviewQuery } from '../../hooks/useMovieReview';
-import { useMovieRecomandsQuery } from '../../hooks/useMovieRecommand';
+import { useMovieCreditsQuery } from '../../Moviehooks/useMovieCredits';
+import { useMovieReviewQuery } from '../../Moviehooks/useMovieReview';
+import { useMovieRecomandsQuery } from '../../Moviehooks/useMovieRecommand';
 import CastCard from '../../common/CastCard/CastCard';
 import MovieCard from '../../common/MovieCard/MovieCard';
 
@@ -15,7 +15,7 @@ import Carousel from "react-multi-carousel";
 import 'react-multi-carousel/lib/styles.css';
 import Modal from 'react-modal';
 import YouTube from 'react-youtube';
-import { useMovieVideoQuery } from '../../hooks/useMovieVideo';
+import { useMovieVideoQuery } from '../../Moviehooks/useMovieVideo';
 
 
 

@@ -2,7 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 import api from "../utils/api";
 
 const fetchMovieVideo = ({ movie_id }) => {
-    console.log(movie_id);
     return api.get(`/movie/${movie_id}/videos`)
 }
 

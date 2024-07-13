@@ -1,5 +1,5 @@
 import React from 'react'
-import { useUpcomingMoviesQuery } from '../../../../hooks/useUpcomingMovies';
+import { useUpcomingMoviesQuery } from '../../../../Moviehooks/useUpcomingMovies';
 import { Alert } from 'bootstrap';
 import MovieSlider from '../../../../common/MovieSlider/MovieSlider';
 import { responsive } from '../../../../constants/responsive';
@@ -18,7 +18,7 @@ const UpcomingMovieSlide = () => {
 
     return (
         <div>
-            <MovieSlider title={'Up Coming'} movies={data?.results} responsive={responsive} />
+            <MovieSlider title={'Up Coming Movies'} movies={data?.results} responsive={responsive} />
         </div>
     )
 }

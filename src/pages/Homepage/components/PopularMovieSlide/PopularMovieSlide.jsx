@@ -1,5 +1,5 @@
 import React from 'react'
-import { usePopularMoviesQuery } from '../../../../hooks/usePopularMovies';
+import { usePopularMoviesQuery } from '../../../../Moviehooks/usePopularMovies';
 import { Alert } from 'bootstrap';
 import MovieSlider from '../../../../common/MovieSlider/MovieSlider';
 import { responsive } from '../../../../constants/responsive';

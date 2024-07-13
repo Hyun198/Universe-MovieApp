@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useSearchMovieQuery } from "../../hooks/useSearchMovie";
+import { useSearchMovieQuery } from "../../Moviehooks/useSearchMovie";
 import { useSearchParams } from "react-router-dom";
 import { Alert } from "bootstrap";
 import { Col, Container, Row, Dropdown, Badge } from "react-bootstrap";
 import MovieCard from '../../common/MovieCard/MovieCard';
 import './MoviePage.style.css'
 import ReactPaginate from 'react-paginate';
-import { useMovieGenreQuery } from "../../hooks/useMovieGenre";
+import { useMovieGenreQuery } from "../../Moviehooks/useMovieGenre";
 
 
 //필터기능

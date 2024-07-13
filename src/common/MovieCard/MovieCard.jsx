@@ -1,7 +1,7 @@
 import React from "react";
 import { Badge } from "react-bootstrap";
 import "./MovieCard.style.css";
-import { useMovieGenreQuery } from "../../hooks/useMovieGenre";
+import { useMovieGenreQuery } from "../../Moviehooks/useMovieGenre";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faFire } from '@fortawesome/free-solid-svg-icons';

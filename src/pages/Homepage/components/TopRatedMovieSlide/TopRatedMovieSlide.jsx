@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTopRatedMoviesQuery } from '../../../../hooks/useTopRatedMovie'
+import { useTopRatedMoviesQuery } from '../../../../Moviehooks/useTopRatedMovie'
 import { Alert } from 'react-bootstrap';
 import MovieSlider from '../../../../common/MovieSlider/MovieSlider';
 import { responsive } from '../../../../constants/responsive';
@@ -20,7 +20,7 @@ const TopRatedMovieSlide = () => {
 
     return (
         <div>
-            <MovieSlider title={'Top Rated'} movies={data?.results} responsive={responsive} />
+            <MovieSlider title={'Top Rated Movies'} movies={data?.results} responsive={responsive} />
         </div>
     )
 }
