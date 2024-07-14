@@ -73,3 +73,11 @@
     top: 0;
     right: 0;
 }
+
+.no-trailer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 35px;
+}

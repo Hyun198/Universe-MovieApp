@@ -8,6 +8,9 @@ import './MovieDetailPage.style.css';
 import { useMovieCreditsQuery } from '../../Moviehooks/useMovieCredits';
 import { useMovieReviewQuery } from '../../Moviehooks/useMovieReview';
 import { useMovieRecomandsQuery } from '../../Moviehooks/useMovieRecommand';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMoneyBill1, faFire } from '@fortawesome/free-solid-svg-icons';
 import CastCard from '../../common/CastCard/CastCard';
 import MovieCard from '../../common/MovieCard/MovieCard';
 
@@ -168,8 +171,8 @@ const MovieDetailPage = () => {
 
 
                         </div>
-                        <div>{movie.popularity}</div>
-                        <div>예산: ${movie.budget.toLocaleString()}</div>
+                        <div><FontAwesomeIcon icon={faFire} /> {movie.popularity}</div>
+                        <div><FontAwesomeIcon icon={faMoneyBill1} /> ${movie.budget.toLocaleString()}</div>
                         <div className="movie-overview">줄거리<br></br>
                             {movie.overview}
                         </div>

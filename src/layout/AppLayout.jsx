@@ -5,6 +5,8 @@ import { Link, Outlet, useNavigate } from 'react-router-dom'
 const AppLayout = () => {
     const [keyword, setKeyword] = useState("");
     const navigate = useNavigate()
+
+
     const handleSearch = (event) => {
         event.preventDefault();
         //url을 바꿔주기

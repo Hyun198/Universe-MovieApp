@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSearchMovieQuery } from "../../Moviehooks/useSearchMovie";
 import { useSearchParams } from "react-router-dom";
 import { Alert } from "bootstrap";
@@ -30,6 +30,8 @@ const MoviePage = () => {
                 return movies.sort((a, b) => b.popularity - a.popularity);
             case 'release_date':
                 return movies.sort((a, b) => new Date(b.release_date) - new Date(a.release_date));
+            case 'vote_average':
+                return movies.sort((a, b) => b.vote_average - a.vote_average);
             default:
                 return movies;
         }
@@ -47,6 +49,8 @@ const MoviePage = () => {
             case 'release_date':
                 return '최신순';
             // Add other cases if there are more sort options
+            case 'vote_average':
+                return '평점순';
             default:
                 return 'Sort';
         }
@@ -94,6 +98,7 @@ const MoviePage = () => {
                                 <Dropdown.Menu>
                                     <Dropdown.Item onClick={() => setSortOrder('popularity')}>인기순</Dropdown.Item>
                                     <Dropdown.Item onClick={() => setSortOrder('release_date')}>최신순</Dropdown.Item>
+                                    <Dropdown.Item onClick={() => setSortOrder('vote_average')}>평점순</Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
                         </Col>
