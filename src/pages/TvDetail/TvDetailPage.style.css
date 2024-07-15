@@ -93,3 +93,20 @@
     padding: 10px;
     border-bottom: 1px solid #fff;
 }
+
+@media (max-width: 768px) {
+    .tv-info {
+        font-size: 12px;
+
+    }
+
+    .tv-overview {
+        padding: 5px;
+
+    }
+
+    .tv-air {
+        padding: 5px;
+
+    }
+}

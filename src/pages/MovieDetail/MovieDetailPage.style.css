@@ -78,3 +78,14 @@
     top: 0;
     right: 0;
 }
+
+@media (max-width: 768px) {
+    .movie-info {
+        font-size: 12px;
+    }
+
+    .movie-overview {
+        padding: 5px;
+        font-size: 12px;
+    }
+}

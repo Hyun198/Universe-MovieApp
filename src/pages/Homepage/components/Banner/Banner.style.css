@@ -1,8 +1,12 @@
 .banner {
     height: 56vh;
-    background-position: left;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
+
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .banner:before {
@@ -12,6 +16,7 @@
     left: 0;
     height: 56vh;
     width: 100%;
+    z-index: 1;
 }
 
 .banner-text-area {
@@ -23,6 +28,40 @@
     padding: 20px;
 }
 
+.banner-text-area>p {
+    padding-top: 20px;
+}
+
 .banner-text-area>* {
     z-index: 2;
+}
+
+
+
+@media (max-width: 768px) {
+    .banner-text-area {
+        width: 70%;
+    }
+
+    .banner-text-area h1 {
+        font-size: 1.5rem;
+    }
+
+    .banner-text-area p {
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-text-area {
+        width: 90%;
+    }
+
+    .banner-text-area h1 {
+        font-size: 1.2rem;
+    }
+
+    .banner-text-area p {
+        font-size: 0.75rem;
+    }
 }

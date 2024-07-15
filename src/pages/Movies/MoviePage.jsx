@@ -78,10 +78,10 @@ const MoviePage = () => {
     return (
         <Container>
             <Row className="all-side">
-                <Col className="left-side" lg={4} xs={6}>
+                <Col className="left-side" lg={4} xs={12}>
                     Genres
                     <Row>
-                        <Col xs={12}>
+                        <Col xs={12} className="genre-list-container">
                             <div className="genre-list">
                                 {genres?.map((genre) => (
                                     <Badge key={genre.id} onClick={() => handleGenreSort(genre)}
@@ -89,7 +89,7 @@ const MoviePage = () => {
                                 ))}
                             </div>
                         </Col>
-                        <Col xs={12}>
+                        <Col xs={12} className="sort-btn">
                             <Dropdown >
                                 <Dropdown.Toggle id="dropdown-basic">
                                     {getSortOrderLabel()}
@@ -103,13 +103,8 @@ const MoviePage = () => {
                             </Dropdown>
                         </Col>
                     </Row>
-
-
-
-
-
                 </Col>
-                <Col className="right-side" lg={8} xs={6}>
+                <Col className="right-side" lg={8} xs={12}>
                     <Row>
                         {sortedMovies.map((movie, index) => (
                             <Col className="right-side-info" lg={3} xs={12} key={index}>
