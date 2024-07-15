@@ -18,6 +18,7 @@
 }
 
 .tv-overview {
+    padding: 10px;
     border-top: 1px solid white;
     border-bottom: 1px solid white;
 }
@@ -80,4 +81,15 @@
     align-items: center;
     color: white;
     font-size: 35px;
+}
+
+.tv-seasons {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px;
+}
+
+.tv-air {
+    padding: 10px;
+    border-bottom: 1px solid #fff;
 }

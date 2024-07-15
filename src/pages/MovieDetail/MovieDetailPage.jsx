@@ -176,8 +176,8 @@ const MovieDetailPage = () => {
                         <div className="movie-overview">줄거리<br></br>
                             {movie.overview}
                         </div>
-                        <div>개봉일: {movie.release_date}</div>
-                        <div>Run Time: {movie.runtime} Min</div>
+                        <div className="movie-release" >개봉 : {movie.release_date}</div>
+                        <div>Run Time : {movie.runtime} Min</div>
                         <div className="movie-credits">
                             <CastCard credits={credits} />
                         </div>

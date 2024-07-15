@@ -18,8 +18,13 @@
 }
 
 .movie-overview {
+    padding: 10px;
     border-top: 1px solid white;
     border-bottom: 1px solid white;
+}
+
+.movie-release {
+    padding: 10px;
 }
 
 .movie-reviews {

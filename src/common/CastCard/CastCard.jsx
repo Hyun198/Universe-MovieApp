@@ -15,7 +15,7 @@ const CastCard = ({ credits }) => {
                     className="cast-profile"
                 >
                     <div className="cast-info">
-                        {cast.name} as <span>{cast.character}</span>
+                        {cast.name}
                     </div>
                 </div>
             ))}
