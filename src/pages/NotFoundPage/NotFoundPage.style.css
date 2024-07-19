@@ -1,0 +1,18 @@
+.NotPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../../public/universe2.png');
+    height: 100vh;
+    background-position: center;
+    object-fit: cover;
+}
+
+.NotPage h1,
+.NotPage h2 {
+    text-align: center;
+    color: #222;
+    font-weight: 800;
+
+}
