@@ -57,6 +57,10 @@ body {
   color: hsl(0, 0%, 100%);
 }
 
+.likes {
+  margin-right: 15px;
+}
+
 .search-box {
   display: flex;
   align-items: center;

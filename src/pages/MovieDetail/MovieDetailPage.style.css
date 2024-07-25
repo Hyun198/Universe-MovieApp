@@ -65,7 +65,15 @@
 
 .trailer-button:hover {
     scale: 1.2;
+}
 
+.heart-icon {
+    cursor: pointer;
+}
+
+.heart-icon:hover {
+    color: black;
+    border: 1px solid white;
 }
 
 .close-modal {

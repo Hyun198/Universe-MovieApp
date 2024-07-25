@@ -8,10 +8,10 @@ import { faStar, faFire } from '@fortawesome/free-solid-svg-icons';
 
 const MovieCard = ({ movie }) => {
     const navigate = useNavigate();
-
+    console.log("movieA: ", movie);
     const { data: genreData } = useMovieGenreQuery()
 
-    const showGenre = (genreIdList) => {
+    /* const showGenre = (genreIdList) => {
         if (!genreData) {
             return [];
         }//장르데이터가 없다면 아무것도 안보여줌
@@ -22,9 +22,33 @@ const MovieCard = ({ movie }) => {
         })
 
         return genreNameList
-    }
+    } */
 
+    // 장르 데이터를 처리하는 함수
+    const getGenres = (genreList) => {
+        if (!genreData) {
+            return [];
+        }
 
+        if (Array.isArray(genreList)) {
+            // genres가 직접 배열로 제공되는 경우
+            return genreList.map((genre) => {
+                const genreObj = genreData.find((g) => g.id === genre.id);
+                return genreObj ? genreObj.name : 'Unknown';
+            });
+        } else if (Array.isArray(genreList.genre_ids)) {
+            // genre_ids가 제공되는 경우
+            return genreList.genre_ids.map((id) => {
+                const genreObj = genreData.find((g) => g.id === id);
+                return genreObj ? genreObj.name : 'Unknown';
+            });
+        }
+
+        return [];
+    };
+
+    // 장르 리스트를 가져오는 로직
+    const genreList = getGenres(movie.genres || movie.genre_ids || []);
 
     const handleMoveToDetail = (id) => {
         navigate(`/movies/${id}`);
@@ -45,9 +69,16 @@ const MovieCard = ({ movie }) => {
             <div className="overlay">
                 <h1 className="title">{movie.title}</h1>
                 <div className="genre">
-                    {showGenre(movie.genre_ids).map((id) => (
+                    {/* {showGenre(movie?.genre_ids).map((id) => (
                         <Badge className="movie-badge" >{id}</Badge>
-                    ))}
+                    ))} */}
+                    {genreList.length > 0 ? (
+                        genreList.map((genre, index) => (
+                            <Badge key={index} className="movie-badge">{genre}</Badge>
+                        ))
+                    ) : (
+                        <Badge className="movie-badge">Unknown</Badge>
+                    )}
                 </div>
 
 

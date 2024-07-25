@@ -7,7 +7,6 @@ import TvSlider from '../../../../common/TvSlider/TvSlider'
 const PopularTvSlide = () => {
 
     const { data, isError, error, isLoading } = usePopularTvQuery();
-    console.log(data);
     if (isLoading) {
         return <h1>Loading...</h1>
     }

@@ -9,6 +9,7 @@ import TvDetailPage from './pages/TvDetail/TvDetailPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Transition, TransitionGroup } from 'react-transition-group';
+import LikesPage from './pages/likes/LikesPage';
 
 
 
@@ -62,7 +63,11 @@ function App() {
                     <Route path=':id' element={<TvDetailPage />} />
                     <Route path="*" element={<NotFoundPage />} />
                   </Route>
+                  <Route path="/likes">
+                    <Route index element={<LikesPage />} />
+                  </Route>
                 </Route>
+
                 <Route path="*" element={<NotFoundPage />} />
               </Routes>
             </div>

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Col, Container, Row, Badge } from 'react-bootstrap'
 import { Alert } from "bootstrap";
 import { useParams } from 'react-router-dom'
+
 import { useMovieDetailQuery } from '../../Moviehooks/useMovieDetail'
 import { useMovieGenreQuery } from '../../Moviehooks/useMovieGenre';
 import './MovieDetailPage.style.css';
@@ -11,16 +12,21 @@ import { useMovieRecomandsQuery } from '../../Moviehooks/useMovieRecommand';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoneyBill1, faFire } from '@fortawesome/free-solid-svg-icons';
+
+import { faHeart as faHeartSolid } from '@fortawesome/free-solid-svg-icons'; // 채워진 하트 아이콘
+import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons'; // 빈 하트 아이콘
+
 import CastCard from '../../common/CastCard/CastCard';
 import MovieCard from '../../common/MovieCard/MovieCard';
 
 import Carousel from "react-multi-carousel";
 import 'react-multi-carousel/lib/styles.css';
+
 import Modal from 'react-modal';
 import YouTube from 'react-youtube';
 import { useMovieVideoQuery } from '../../Moviehooks/useMovieVideo';
 
-
+import { useDispatch, useSelector } from 'react-redux';
 
 export const responsive = {
     desktop: {
@@ -50,6 +56,12 @@ const MovieDetailPage = () => {
     const { data: reviews } = useMovieReviewQuery({ movie_id: id });
     const { data: recommands } = useMovieRecomandsQuery({ movie_id: id });
     const { data: videos } = useMovieVideoQuery({ movie_id: id });
+
+    const dispatch = useDispatch();
+    const likes = useSelector(state => state.likes); // 현재 찜 목록 가져오기
+    const isLiked = movie && likes.some(like => like.id === movie.id);
+
+
     if (isError) {
         return <Alert varients="danger">{error.message}</Alert>;
     }
@@ -115,7 +127,14 @@ const MovieDetailPage = () => {
         },
     };
 
+    const AddMovieLikes = () => {
 
+        dispatch({ type: "ADD_LIKE", payload: movie })
+    }
+
+    const RemoveMovieLikes = () => {
+        dispatch({ type: 'REMOVE_LIKE', payload: movie })
+    }
 
     function openModal() {
         setModalIsOpen(true);
@@ -139,6 +158,24 @@ const MovieDetailPage = () => {
                     <div className="movie-info">
                         <div>{movie.title}
                             <Badge className="trailer-button" onClick={openModal}>trailer</Badge>
+
+                            {isLiked ? (
+                                <FontAwesomeIcon
+                                    icon={faHeartSolid}
+                                    size="lg"
+                                    style={{ marginLeft: '10px' }}
+                                    onClick={RemoveMovieLikes}
+                                />
+                            ) : (
+                                <FontAwesomeIcon
+                                    icon={faHeartRegular}
+                                    size="lg"
+                                    style={{ marginLeft: '10px' }}
+                                    onClick={AddMovieLikes}
+                                />
+                            )}
+
+
                             <Modal
                                 isOpen={modalIsOpen}
                                 onRequestClose={() => setModalIsOpen(false)}
@@ -156,7 +193,7 @@ const MovieDetailPage = () => {
                                             height: "540",
                                             playerVars: {
                                                 autoplay: 1, //자동재생 O
-                                                rel: 0, //관련 동영상 표시하지 않음 (근데 별로 쓸모 없는듯..)
+                                                rel: 0, //관련 동영상 표시하지 않음 
                                                 modestbranding: 1, // 컨트롤 바에 youtube 로고를 표시하지 않음
                                             },
                                         }}

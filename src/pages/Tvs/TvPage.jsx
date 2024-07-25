@@ -14,7 +14,6 @@ const TvPage = () => {
     const keyword = query.get("q");
 
     const { data, isLoading, error, isError } = useSearchTvQuery({ keyword, page });
-    console.log(data)
 
     const handleSortTvs = (tvs, order) => {
         switch (order) {

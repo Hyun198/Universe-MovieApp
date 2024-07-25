@@ -38,7 +38,7 @@ const MoviePage = () => {
     }
 
     const handleGenreSort = (genre) => {
-        console.log(genre);
+
         setSelectedGenre(genre.id);
         setPage(1);
     }
