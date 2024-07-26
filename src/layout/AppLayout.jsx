@@ -22,9 +22,10 @@ const AppLayout = () => {
                 <ul>
                     <li><Link to="/movies"># Movies</Link></li>
                     <li><Link to="/tvs"># tv</Link></li>
+                    <li><Link to="/likes"><FontAwesomeIcon icon={faHeart} size="1.9x" color="white" /></Link></li>
                 </ul>
                 <div className="likes">
-                    <Link to="/likes"><FontAwesomeIcon icon={faHeart} size="2x" color="white" /></Link>
+
                 </div>
                 <div className="search-box">
                     <form onSubmit={handleSearch}>

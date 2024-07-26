@@ -1,0 +1,24 @@
+.like-movies {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.like-movie {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.like-remove {
+    margin-top: 10px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: hsl(0, 42%, 42%);
+    width: 100px;
+    cursor: pointer;
+}
+
+.like-remove:hover {
+    background-color: hsl(0, 52%, 37%);
+}

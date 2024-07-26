@@ -8,7 +8,6 @@ import { faStar, faFire } from '@fortawesome/free-solid-svg-icons';
 
 const MovieCard = ({ movie }) => {
     const navigate = useNavigate();
-    console.log("movieA: ", movie);
     const { data: genreData } = useMovieGenreQuery()
 
     /* const showGenre = (genreIdList) => {

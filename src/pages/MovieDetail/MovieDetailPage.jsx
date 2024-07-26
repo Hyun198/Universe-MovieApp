@@ -143,6 +143,9 @@ const MovieDetailPage = () => {
         setModalIsOpen(false);
     }
 
+    const videoKey = videos?.results?.[0]?.key;
+
+
     return (
         <Container>
             <Row>
@@ -151,8 +154,8 @@ const MovieDetailPage = () => {
                 </Col>
                 <Col lg={8} xs={12}>
                     <div className='genre-detail'>
-                        {showGenre(movie.genres).map((id) => (
-                            <Badge className="movie-badge" ># {id}</Badge>
+                        {showGenre(movie.genres).map((id, index) => (
+                            <Badge key={index} className="movie-badge" ># {id}</Badge>
                         ))}
                     </div>
                     <div className="movie-info">
@@ -186,20 +189,23 @@ const MovieDetailPage = () => {
                             >
                                 <button className='close-modal' onClick={closeModal}>X</button>
                                 <div>
-                                    <YouTube
-                                        videoId={videos?.results[0].key}
-                                        opts={{
-                                            width: "1015",
-                                            height: "540",
-                                            playerVars: {
-                                                autoplay: 1, //자동재생 O
-                                                rel: 0, //관련 동영상 표시하지 않음 
-                                                modestbranding: 1, // 컨트롤 바에 youtube 로고를 표시하지 않음
-                                            },
-                                        }}
-                                        //이벤트 리스너 
-                                        onEnd={(e) => { e.target.stopVideo(0); }}
-                                    />
+                                    {videoKey && (
+                                        <YouTube
+                                            videoId={videos?.results[0].key}
+                                            opts={{
+                                                width: "1015",
+                                                height: "540",
+                                                playerVars: {
+                                                    autoplay: 1, //자동재생 O
+                                                    rel: 0, //관련 동영상 표시하지 않음 
+                                                    modestbranding: 1, // 컨트롤 바에 youtube 로고를 표시하지 않음
+                                                },
+                                            }}
+                                            //이벤트 리스너 
+                                            onEnd={(e) => { e.target.stopVideo(0); }}
+                                        />
+                                    )}
+
 
 
                                 </div>
