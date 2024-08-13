@@ -9,8 +9,8 @@ import { faStar, faFire } from '@fortawesome/free-solid-svg-icons';
 const MovieCard = ({ movie }) => {
     const navigate = useNavigate();
     const { data: genreData } = useMovieGenreQuery()
-
-    /* const showGenre = (genreIdList) => {
+    console.log(genreData);
+    const showGenre = (genreIdList) => {
         if (!genreData) {
             return [];
         }//장르데이터가 없다면 아무것도 안보여줌
@@ -21,7 +21,7 @@ const MovieCard = ({ movie }) => {
         })
 
         return genreNameList
-    } */
+    }
 
     // 장르 데이터를 처리하는 함수
     const getGenres = (genreList) => {
@@ -68,16 +68,16 @@ const MovieCard = ({ movie }) => {
             <div className="overlay">
                 <h1 className="title">{movie.title}</h1>
                 <div className="genre">
-                    {/* {showGenre(movie?.genre_ids).map((id) => (
+                    {showGenre(movie?.genre_ids).map((id) => (
                         <Badge className="movie-badge" >{id}</Badge>
-                    ))} */}
-                    {genreList.length > 0 ? (
+                    ))}
+                    {/* {genreList.length > 0 ? (
                         genreList.map((genre, index) => (
                             <Badge key={index} className="movie-badge">{genre}</Badge>
                         ))
                     ) : (
                         <Badge className="movie-badge">Unknown</Badge>
-                    )}
+                    )} */}
                 </div>
 
 
