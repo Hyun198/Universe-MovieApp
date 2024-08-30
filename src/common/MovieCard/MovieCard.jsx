@@ -71,13 +71,6 @@ const MovieCard = ({ movie }) => {
                     {showGenre(movie?.genre_ids).map((id) => (
                         <Badge className="movie-badge" >{id}</Badge>
                     ))}
-                    {/* {genreList.length > 0 ? (
-                        genreList.map((genre, index) => (
-                            <Badge key={index} className="movie-badge">{genre}</Badge>
-                        ))
-                    ) : (
-                        <Badge className="movie-badge">Unknown</Badge>
-                    )} */}
                 </div>
 
 
