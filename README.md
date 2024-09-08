@@ -5,6 +5,7 @@
 <!-- Badges -->
 <h4>
     <a href="https://univermovie.netlify.app">View Demo</a>
+    <a href="https://velog.io/@hwn123h/Universe-%EC%98%81%ED%99%94-%EC%95%B1">Velog</a>
 </h4>
 
 <p>TMDB API를 이용하여 영화, TV 시리즈의 정보를 제공</p>
@@ -39,11 +40,11 @@
 ### ⚡Tech Stack⚡
 
 <ul>
-    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white" alt="javascript" />
+   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white" alt="javascript" />
    <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="html" />
    <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="css" />
    <img src="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white" alt="redux" />
-   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=reactQuery&logoColor=61DAFB" alt="react-query">
+   <img src="https://img.shields.io/badge/ReactQuery-20232A?style=for-the-badge&logo=react&logoColor=61DAF" alt="react-query">
    <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="react" />
 </ul>
 
@@ -51,7 +52,8 @@
 
 ### Features
 
-- 로그인 상태를 관리 하기 위해 서버쪽에서 처리하는게 아닌 상태로 관리
+- React-query를 이용해서 서버 상태관리
+- Redux를 이용한 데이터 전역관리 (Wish List)
 
 <!-- Getting Started -->
 
@@ -120,4 +122,5 @@ Use this section to mention useful resources and libraries that you have used in
 
 - [Redux](https://ko.redux.js.org/introduction/getting-started/)
 - [React Redux](https://react-redux.js.org/)
-- [Json-server](https://my-json-server.typicode.com/)
+- [React Query](https://tanstack.com/query/latest/docs/framework/react/overview)
+- [TMDB doc](https://developer.themoviedb.org/docs/getting-started)
