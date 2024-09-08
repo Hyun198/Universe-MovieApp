@@ -1,105 +1,67 @@
-<!--
-Hey, thanks for using the awesome-readme-template template.
-If you have any enhancements, then fork this project and create a pull request
-or just open an issue with the label "enhancement".
-
-Don't forget to give this project a star for additional support ;)
-Maybe you can mention me or this repo in the acknowledgements too
--->
-
-<!--
-This README is a slimmed down version of the original one.
-Removed sections:
-- Screenshots
-- Running Test
-- Deployment
-- FAQ
--->
-
 <div align="center">
 
-  <h1>Universe Movie</h1>
-  
-  <p>
-    Universe Movie APP
-  </p>
+  <h1>🎬 Universe Movie APP! </h1>
 
+<!-- Badges -->
 <h4>
-    <a href="https://github.com/Louis3797/awesome-readme-template/">View Demo</a>
+    <a href="https://univermovie.netlify.app">View Demo</a>
 </h4>
+
+<p>TMDB API를 이용하여 영화, TV 시리즈의 정보를 제공</p>
+
+</div>
 
 <br />
 
 <!-- Table of Contents -->
 
-# :notebook_with_decorative_cover: Table of Contents
+# Table of Contents
 
-- [About the Project](#star2-about-the-project)
-  - [Tech Stack](#space_invader-tech-stack)
-  - [Features](#dart-features)
-  - [Environment Variables](#key-environment-variables)
-- [Getting Started](#toolbox-getting-started)
-  - [Prerequisites](#bangbang-prerequisites)
-  - [Installation](#gear-installation)
-  - [Run Locally](#running-run-locally)
-- [Usage](#eyes-usage)
+- [About the Project](#about-the-project)
+  - [Tech Stack](#tech-stack)
+  - [Features](#features)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Acknowledgements](#acknowledgements)
+- [Contributors](#contributors)
 
 <!-- About the Project -->
 
-## :star2: About the Project
+## 💻About the Project
 
 <div align="center"> 
-  
+  <img src="./public/universe.png" alt="screenshot" />
 </div>
 
 <!-- TechStack -->
 
-### :space_invader: Tech Stack
+### ⚡Tech Stack⚡
 
-<details>
-  Client
-  <ul>
-    <li><a href="https://www.typescriptlang.org/">Typescript</a></li>
-    <li><a href="https://nextjs.org/">Next.js</a></li>
-    <li><a href="https://reactjs.org/">React.js</a></li>
-    <li><a href="https://tailwindcss.com/">TailwindCSS</a></li>
-  </ul>
-</details>
-
-<details>
-<summary>DevOps</summary>
-  <ul>
-   
-  </ul>
-</details>
+<ul>
+    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white" alt="javascript" />
+   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="html" />
+   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="css" />
+   <img src="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white" alt="redux" />
+   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=reactQuery&logoColor=61DAFB" alt="react-query">
+   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="react" />
+</ul>
 
 <!-- Features -->
 
-### :dart: Features
+### Features
 
-- Feature 1
-- Feature 2
-- Feature 3
-
-<!-- Env Variables -->
-
-### :key: Environment Variables
-
-To run this project, you will need to add the following environment variables to your .env file
-
-`API_KEY`
-
-`ANOTHER_API_KEY`
+- 로그인 상태를 관리 하기 위해 서버쪽에서 처리하는게 아닌 상태로 관리
 
 <!-- Getting Started -->
 
-## :toolbox: Getting Started
+## Getting Started
 
 <!-- Prerequisites -->
 
-### :bangbang: Prerequisites
+### Prerequisites
 
-This project uses npm as package manager
+This project uses Yarn as package manager
 
 ```bash
  npm install --global npm
@@ -107,7 +69,7 @@ This project uses npm as package manager
 
 <!-- Installation -->
 
-### :gear: Installation
+### Installation
 
 Install my-project with npm
 
@@ -118,12 +80,12 @@ Install my-project with npm
 
 <!-- Run Locally -->
 
-### :running: Run Locally
+### Run Locally
 
 Clone the project
 
 ```bash
-  git clone https://github.com/Louis3797/awesome-readme-template.git
+  git clone https://github.com/Hyun198/e-commerce.git
 ```
 
 Go to the project directory
@@ -144,17 +106,18 @@ Start the server
   npm start
 ```
 
-<!-- Usage -->
+## contributors
 
-## :eyes: Usage
+    I will keep updating this project for better result👍
+
+    But if you have smt to help me, let me know please👋
 
 <!-- Acknowledgments -->
 
-## :gem: Acknowledgements
+## Acknowledgements
 
 Use this section to mention useful resources and libraries that you have used in your projects.
 
-- [Shields.io](https://shields.io/)
-- [Awesome README](https://github.com/matiassingers/awesome-readme)
-- [Emoji Cheat Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md#travel--places)
-- [Readme Template](https://github.com/othneildrew/Best-README-Template)
+- [Redux](https://ko.redux.js.org/introduction/getting-started/)
+- [React Redux](https://react-redux.js.org/)
+- [Json-server](https://my-json-server.typicode.com/)
