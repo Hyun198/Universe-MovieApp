@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Container, Row, Col } from 'react-bootstrap';
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
