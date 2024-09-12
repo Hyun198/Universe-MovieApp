@@ -9,19 +9,15 @@ import ReactPaginate from 'react-paginate';
 import { useMovieGenreQuery } from "../../Moviehooks/useMovieGenre";
 
 
-//필터기능
-//장르 별로 검색, sort기능 구현
-
 const MoviePage = () => {
     const [query, setQuery] = useSearchParams();
     const [page, setPage] = useState(1);
     const [sortOrder, setSortOrder] = useState('');
     const [selectedGenre, setSelectedGenre] = useState('');
-
-
     const keyword = query.get("q");
 
     const { data, isLoading, error, isError } = useSearchMovieQuery({ keyword, page, genre: selectedGenre });
+    console.log(data);
     const { data: genres } = useMovieGenreQuery();
 
     const handleSortMovies = (movies, order) => {
@@ -38,10 +34,10 @@ const MoviePage = () => {
     }
 
     const handleGenreSort = (genre) => {
-
         setSelectedGenre(genre.id);
         setPage(1);
     }
+
     const getSortOrderLabel = () => {
         switch (sortOrder) {
             case 'popularity':
@@ -55,7 +51,6 @@ const MoviePage = () => {
                 return 'Sort';
         }
     }
-
 
 
     const handlePageClick = ({ selected }) => {
@@ -72,7 +67,6 @@ const MoviePage = () => {
     if (isLoading) {
         return <h1>Loading...</h1>;
     }
-
     const sortedMovies = handleSortMovies([...data?.results], sortOrder);
 
     return (
@@ -113,12 +107,12 @@ const MoviePage = () => {
                         ))}
                     </Row>
                     <ReactPaginate
-                        nextLabel="next >"
+                        nextLabel=" >"
                         onPageChange={handlePageClick}
                         pageRangeDisplayed={3}
                         marginPagesDisplayed={2}
-                        pageCount={data?.total_pages} //전체 페이지
-                        previousLabel="< previous"
+                        pageCount={15} //전체 페이지
+                        previousLabel="<"
                         pageClassName="page-item"
                         pageLinkClassName="page-link"
                         previousClassName="page-item"
@@ -130,7 +124,6 @@ const MoviePage = () => {
                         breakLinkClassName="page-link"
                         containerClassName="pagination"
                         activeClassName="active"
-                        renderOnZeroPageCount={null}
                         forcePage={page - 1}
                     />
                 </Col>

@@ -92,12 +92,12 @@ const TvPage = () => {
                     </Row>
 
                     <ReactPaginate
-                        nextLabel="next >"
+                        nextLabel=">"
                         onPageChange={handlePageClick}
                         pageRangeDisplayed={3}
                         marginPagesDisplayed={2}
-                        pageCount={data?.total_pages} //전체 페이지
-                        previousLabel="< previous"
+                        pageCount={15} //전체 페이지
+                        previousLabel="<"
                         pageClassName="page-item"
                         pageLinkClassName="page-link"
                         previousClassName="page-item"
@@ -109,7 +109,6 @@ const TvPage = () => {
                         breakLinkClassName="page-link"
                         containerClassName="pagination"
                         activeClassName="active"
-                        renderOnZeroPageCount={null}
                         forcePage={page - 1}
                     />
                 </Col>

@@ -9,7 +9,7 @@ import { faStar, faFire } from '@fortawesome/free-solid-svg-icons';
 const MovieCard = ({ movie }) => {
     const navigate = useNavigate();
     const { data: genreData } = useMovieGenreQuery()
-    console.log(genreData);
+    /*  console.log(genreData); */
     const showGenre = (genreIdList) => {
         if (!genreData) {
             return [];
@@ -77,7 +77,7 @@ const MovieCard = ({ movie }) => {
                 <div className="overlay-info">
                     <div><FontAwesomeIcon icon={faStar} /> {movie.vote_average.toFixed(1)}</div>
                     <div><FontAwesomeIcon icon={faFire} /> {Math.round(movie.popularity * 10) / 10}</div>
-                    <div>{movie.adult ? "over18" : "under18"}</div>
+                    {/* <div>{movie.adult ? "over18" : "under18"}</div>  데이터 정보가 오류가 있음*/}
                 </div>
             </div>
 

@@ -23,9 +23,7 @@ const AppLayout = () => {
                     <li><Link to="/tvs"># tv</Link></li>
                     <li><Link to="/likes"><FontAwesomeIcon icon={faHeart} size="1.9x" color="white" /></Link></li>
                 </ul>
-                <div className="likes">
 
-                </div>
                 <div className="search-box">
                     <form onSubmit={handleSearch}>
                         <input type="text" placeholder='search...' value={keyword} onChange={(event) => setKeyword(event.target.value)} />
