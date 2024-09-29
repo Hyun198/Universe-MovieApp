@@ -1,8 +1,8 @@
 .banner {
-    height: 56vh;
+    height: 50vh;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     position: relative;
 
     border-top-left-radius: 10px;
@@ -14,7 +14,7 @@
     background: linear-gradient(to top, black, transparent);
     position: absolute;
     left: 0;
-    height: 56vh;
+    height: 50vh;
     width: 100%;
     z-index: 1;
 }
