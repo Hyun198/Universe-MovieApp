@@ -15,7 +15,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoneyBill1, faFire } from '@fortawesome/free-solid-svg-icons';
 
 import { faHeart as faHeartSolid } from '@fortawesome/free-solid-svg-icons'; // 채워진 하트 아이콘
-
+import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons';
 import CastCard from '../../common/CastCard/CastCard';
 import MovieCard from '../../common/MovieCard/MovieCard';
 
@@ -171,7 +171,7 @@ const MovieDetailPage = () => {
                                 />
                             ) : (
                                 <FontAwesomeIcon
-                                    icon={faHeartSolid}
+                                    icon={faHeartRegular}
                                     size="lg"
                                     style={{ marginLeft: '10px', cursor: 'pointer' }}
                                     onClick={AddMovieLikes}
