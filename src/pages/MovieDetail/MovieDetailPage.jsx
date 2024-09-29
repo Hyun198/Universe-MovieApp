@@ -2,19 +2,20 @@ import React, { useState } from 'react'
 import { Col, Container, Row, Badge } from 'react-bootstrap'
 import { Alert } from "bootstrap";
 import { useParams } from 'react-router-dom'
-
+import './MovieDetailPage.style.css';
 import { useMovieDetailQuery } from '../../Moviehooks/useMovieDetail'
 import { useMovieGenreQuery } from '../../Moviehooks/useMovieGenre';
-import './MovieDetailPage.style.css';
+
 import { useMovieCreditsQuery } from '../../Moviehooks/useMovieCredits';
 import { useMovieReviewQuery } from '../../Moviehooks/useMovieReview';
 import { useMovieRecomandsQuery } from '../../Moviehooks/useMovieRecommand';
 
-import { FontAwesomeIcon } from '@FontAwesomeIcon/react-fontawesome'
-import { faMoneyBill1, faFire } from '@FontAwesomeIcon/free-solid-svg-icons';
 
-import { faHeart as faHeartSolid } from '@FontAwesomeIcon/free-solid-svg-icons'; // 채워진 하트 아이콘
-import { faHeart as faHeartRegular } from '@FontAwesomeIcon/free-regular-svg-icons'; // 빈 하트 아이콘
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMoneyBill1, faFire } from '@fortawesome/free-solid-svg-icons';
+
+import { faHeart as faHeartSolid } from '@fortawesome/free-solid-svg-icons'; // 채워진 하트 아이콘
+import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons'; // 빈 하트 아이콘
 
 import CastCard from '../../common/CastCard/CastCard';
 import MovieCard from '../../common/MovieCard/MovieCard';
@@ -166,14 +167,14 @@ const MovieDetailPage = () => {
                                 <FontAwesomeIcon
                                     icon={faHeartSolid}
                                     size="lg"
-                                    style={{ marginLeft: '10px' }}
+                                    style={{ marginLeft: '10px', cursor: 'pointer' }}
                                     onClick={RemoveMovieLikes}
                                 />
                             ) : (
                                 <FontAwesomeIcon
                                     icon={faHeartRegular}
                                     size="lg"
-                                    style={{ marginLeft: '10px' }}
+                                    style={{ marginLeft: '10px', cursor: 'pointer' }}
                                     onClick={AddMovieLikes}
                                 />
                             )}
