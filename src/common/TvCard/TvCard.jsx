@@ -28,7 +28,7 @@ const TvCard = ({ tv }) => {
                 <div className="overlay-info">
                     <div><FontAwesomeIcon icon={faStar} /> {tv.vote_average.toFixed(1)}</div>
                     <div><FontAwesomeIcon icon={faFire} /> {Math.round(tv.popularity * 10) / 10}</div>
-                    <div>{tv.adult ? "over18" : "under18"}</div>
+                    {/* <div>{tv.adult ? "over18" : "under18"}</div> */}
                 </div>
             </div>
 
