@@ -10,11 +10,11 @@ import { useMovieCreditsQuery } from '../../Moviehooks/useMovieCredits';
 import { useMovieReviewQuery } from '../../Moviehooks/useMovieReview';
 import { useMovieRecomandsQuery } from '../../Moviehooks/useMovieRecommand';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMoneyBill1, faFire } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@FontAwesomeIcon/react-fontawesome'
+import { faMoneyBill1, faFire } from '@FontAwesomeIcon/free-solid-svg-icons';
 
-import { faHeart as faHeartSolid } from '@fortawesome/free-solid-svg-icons'; // 채워진 하트 아이콘
-import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons'; // 빈 하트 아이콘
+import { faHeart as faHeartSolid } from '@FontAwesomeIcon/free-solid-svg-icons'; // 채워진 하트 아이콘
+import { faHeart as faHeartRegular } from '@FontAwesomeIcon/free-regular-svg-icons'; // 빈 하트 아이콘
 
 import CastCard from '../../common/CastCard/CastCard';
 import MovieCard from '../../common/MovieCard/MovieCard';
