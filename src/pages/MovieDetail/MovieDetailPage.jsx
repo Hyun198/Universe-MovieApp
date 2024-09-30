@@ -5,27 +5,20 @@ import { useParams } from 'react-router-dom'
 import './MovieDetailPage.style.css';
 import { useMovieDetailQuery } from '../../Moviehooks/useMovieDetail'
 import { useMovieGenreQuery } from '../../Moviehooks/useMovieGenre';
-
 import { useMovieCreditsQuery } from '../../Moviehooks/useMovieCredits';
 import { useMovieReviewQuery } from '../../Moviehooks/useMovieReview';
 import { useMovieRecomandsQuery } from '../../Moviehooks/useMovieRecommand';
-
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoneyBill1, faFire } from '@fortawesome/free-solid-svg-icons';
-
 import { faHeart as faHeartSolid } from '@fortawesome/free-solid-svg-icons'; // 채워진 하트 아이콘
 import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons';
 import CastCard from '../../common/CastCard/CastCard';
 import MovieCard from '../../common/MovieCard/MovieCard';
-
 import Carousel from "react-multi-carousel";
 import 'react-multi-carousel/lib/styles.css';
-
 import Modal from 'react-modal';
 import YouTube from 'react-youtube';
 import { useMovieVideoQuery } from '../../Moviehooks/useMovieVideo';
-
 import { useDispatch, useSelector } from 'react-redux';
 
 export const responsive = {

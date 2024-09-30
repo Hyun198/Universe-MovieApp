@@ -7,9 +7,8 @@ import './LikesPage.style.css';
 
 const LikesPage = () => {
     const dispatch = useDispatch();
-    const likes = useSelector(state => state.likes)
+    const likes = useSelector(state => state.likes) || [];
     console.log(likes);
-
     const handleRemoveLikes = (movie) => {
         dispatch({ type: 'REMOVE_LIKE', payload: movie });
     }
@@ -18,10 +17,10 @@ const LikesPage = () => {
         <Container>
             <Row className="like-movies">
                 {likes.length > 0 ? (
-                    likes?.map((movie) => (
+                    likes.map((movie) => (
                         <Col key={movie.id} lg={3} md={4} sm={6} xs={12} className="like-movie">
                             <MovieCard movie={movie} />
-                            <div className="like-remove" bg="primary" onClick={() => handleRemoveLikes(movie)}>취소</div>
+                            <div className="like-remove" onClick={() => handleRemoveLikes(movie)}>취소</div>
                         </Col>
                     ))
                 ) : (
