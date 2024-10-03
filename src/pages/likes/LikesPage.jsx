@@ -8,7 +8,6 @@ import './LikesPage.style.css';
 const LikesPage = () => {
     const dispatch = useDispatch();
     const likes = useSelector(state => state.likes) || [];
-    console.log(likes);
     const handleRemoveLikes = (movie) => {
         dispatch({ type: 'REMOVE_LIKE', payload: movie });
     }
