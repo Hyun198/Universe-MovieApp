@@ -13,3 +13,4 @@ export const usePopularMoviesQuery = () => {
         select: (result) => result.data,
     })
 }
+

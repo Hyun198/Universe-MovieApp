@@ -17,7 +17,6 @@ const MoviePage = () => {
     const keyword = query.get("q");
 
     const { data, isLoading, error, isError } = useSearchMovieQuery({ keyword, page, genre: selectedGenre });
-    console.log(data);
     const { data: genres } = useMovieGenreQuery();
 
     const handleSortMovies = (movies, order) => {
