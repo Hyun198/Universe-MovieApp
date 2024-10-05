@@ -19,7 +19,7 @@ const LikesPage = () => {
                     likes.map((movie) => (
                         <Col key={movie.id} lg={3} md={4} sm={6} xs={12} className="like-movie">
                             <MovieCard movie={movie} />
-                            <div className="like-remove" onClick={() => handleRemoveLikes(movie)}>취소</div>
+                            <div className="like-remove" onClick={() => handleRemoveLikes(movie)}>삭제</div>
                         </Col>
                     ))
                 ) : (

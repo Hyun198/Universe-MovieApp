@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSearchMovieQuery } from "../../Moviehooks/useSearchMovie";
 import { useSearchParams } from "react-router-dom";
 import { Alert } from "bootstrap";
 import { Col, Container, Row, Dropdown, Badge } from "react-bootstrap";
 import MovieCard from '../../common/MovieCard/MovieCard';
 import './MoviePage.style.css'
-import ReactPaginate from 'react-paginate';
 import { useMovieGenreQuery } from "../../Moviehooks/useMovieGenre";
-
+import { useGetInfinityMovies } from "../../Moviehooks/useMovieInfinite";
+import { useInView } from "react-intersection-observer";
 
 const MoviePage = () => {
     const [query, setQuery] = useSearchParams();
@@ -15,9 +15,18 @@ const MoviePage = () => {
     const [sortOrder, setSortOrder] = useState('');
     const [selectedGenre, setSelectedGenre] = useState('');
     const keyword = query.get("q");
-
-    const { data, isLoading, error, isError } = useSearchMovieQuery({ keyword, page, genre: selectedGenre });
     const { data: genres } = useMovieGenreQuery();
+    const { data, isLoading, error, isError } = useSearchMovieQuery({ keyword, page, genre: selectedGenre });
+    const { data: infiniteData, fetchNextPage, hasNextPage, isFetchingNextPage } = useGetInfinityMovies();
+    const { ref, inView } = useInView();
+
+    useEffect(() => {
+        if (inView && hasNextPage && !isFetchingNextPage) {
+            fetchNextPage();
+        }
+
+
+    }, [inView])
 
     const handleSortMovies = (movies, order) => {
         switch (order) {
@@ -52,21 +61,17 @@ const MoviePage = () => {
     }
 
 
-    const handlePageClick = ({ selected }) => {
-        setPage(selected + 1);
-
-    }
-
-
-
-
     if (isError) {
         return <Alert varients="danger">{error.message}</Alert>;
     }
     if (isLoading) {
         return <h1>Loading...</h1>;
     }
-    const sortedMovies = handleSortMovies([...data?.results], sortOrder);
+
+    const movies = keyword ? data?.results : infiniteData?.pages.flatMap(page => page.data.results) || [];
+
+
+    const sortedMovies = handleSortMovies([...movies], sortOrder);
 
     return (
         <Container>
@@ -105,27 +110,10 @@ const MoviePage = () => {
                             </Col>
                         ))}
                     </Row>
-                    <ReactPaginate
-                        nextLabel=" >"
-                        onPageChange={handlePageClick}
-                        pageRangeDisplayed={3}
-                        marginPagesDisplayed={2}
-                        pageCount={15} //전체 페이지
-                        previousLabel="<"
-                        pageClassName="page-item"
-                        pageLinkClassName="page-link"
-                        previousClassName="page-item"
-                        previousLinkClassName="page-link"
-                        nextClassName="page-item"
-                        nextLinkClassName="page-link"
-                        breakLabel="..."
-                        breakClassName="page-item"
-                        breakLinkClassName="page-link"
-                        containerClassName="pagination"
-                        activeClassName="active"
-                        forcePage={page - 1}
-                    />
+
+                    {!keyword && <h1 ref={ref}>Load more</h1>}
                 </Col>
+
             </Row>
         </Container>
     );

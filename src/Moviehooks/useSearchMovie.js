@@ -6,8 +6,11 @@ const fetchSearchMovies = ({ keyword, page, genre }) => {
     if (genre) {
         return api.get(`/discover/movie?with_genres=${genre}`)
     }
+    if (keyword) {
+        return api.get(`/search/movie?query=${keyword}&page=${page}`)
+    }
 
-    return keyword ? api.get(`/search/movie?query=${keyword}&page=${page}`) : api.get(`/movie/popular?page=${page}`)
+    return api.get(`/movie/popular?page=${page}`)
 };
 
 export const useSearchMovieQuery = ({ keyword, page, genre }) => {
@@ -17,3 +20,4 @@ export const useSearchMovieQuery = ({ keyword, page, genre }) => {
         select: (result) => result.data,
     })
 }
+
