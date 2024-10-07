@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Col, Container, Row, Dropdown, Alert } from 'react-bootstrap'
 import { useSearchParams } from 'react-router-dom'
 import { useSearchTvQuery } from "../../Tvhooks/useSearchTv";
+import { useGetInfinityTvs } from '../../Tvhooks/useTvInfinite';
 import TvCard from '../../common/TvCard/TvCard';
-import ReactPaginate from 'react-paginate';
+import { useInView } from "react-intersection-observer";
+
 
 const TvPage = () => {
 
@@ -14,6 +16,16 @@ const TvPage = () => {
     const keyword = query.get("q");
 
     const { data, isLoading, error, isError } = useSearchTvQuery({ keyword, page });
+    const { data: infiniteData, fetchNextPage, hasNextPage, isFetchingNextPage } = useGetInfinityTvs()
+    console.log("infi tv", infiniteData);
+    const { ref, inView } = useInView();
+    useEffect(() => {
+        if (inView && hasNextPage && !isFetchingNextPage) {
+            fetchNextPage();
+        }
+
+
+    }, [inView])
 
     const handleSortTvs = (tvs, order) => {
         switch (order) {
@@ -42,13 +54,10 @@ const TvPage = () => {
         }
     }
 
-    const sortedTvs = handleSortTvs([...data?.results ?? []], sortOrder);
+    const tvs = keyword ? data?.results : infiniteData?.pages.flatMap(page => page.data.results);
 
 
-    const handlePageClick = ({ selected }) => {
-        setPage(selected + 1);
-
-    }
+    const sortedTvs = handleSortTvs([...tvs], sortOrder);
 
 
     if (isError) {
@@ -90,27 +99,7 @@ const TvPage = () => {
                             </Col>
                         ))}
                     </Row>
-
-                    <ReactPaginate
-                        nextLabel=">"
-                        onPageChange={handlePageClick}
-                        pageRangeDisplayed={3}
-                        marginPagesDisplayed={2}
-                        pageCount={15} //전체 페이지
-                        previousLabel="<"
-                        pageClassName="page-item"
-                        pageLinkClassName="page-link"
-                        previousClassName="page-item"
-                        previousLinkClassName="page-link"
-                        nextClassName="page-item"
-                        nextLinkClassName="page-link"
-                        breakLabel="..."
-                        breakClassName="page-item"
-                        breakLinkClassName="page-link"
-                        containerClassName="pagination"
-                        activeClassName="active"
-                        forcePage={page - 1}
-                    />
+                    {!keyword && <h1 ref={ref}>Load more...</h1>}
                 </Col>
             </Row>
 

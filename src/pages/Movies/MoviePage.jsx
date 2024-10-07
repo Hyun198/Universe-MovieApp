@@ -18,7 +18,6 @@ const MoviePage = () => {
     const { data: genres } = useMovieGenreQuery();
     const { data, isLoading, error, isError } = useSearchMovieQuery({ keyword, page, genre: selectedGenre });
     const { data: infiniteData, fetchNextPage, hasNextPage, isFetchingNextPage } = useGetInfinityMovies({ genre: selectedGenre });
-    console.log("iii", infiniteData)
     const { ref, inView } = useInView();
 
     useEffect(() => {
