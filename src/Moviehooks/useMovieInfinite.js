@@ -2,15 +2,21 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import api from '../utils/api'
 
 
-const fetchInfiniteMovies = (page) => {
-    return api.get(`/movie/top_rated?page=${page}`)
+const fetchInfiniteMovies = ({ page, genre }) => {
+    if (genre) {
+        return api.get(`/discover/movie?with_genres=${genre}&page=${page}`);
+    } else {
+        return api.get(`/movie/top_rated?page=${page}`)
+    }
+
+
 }
 
-export const useGetInfinityMovies = () => {
+export const useGetInfinityMovies = ({ genre }) => {
     return useInfiniteQuery({
-        queryKey: ['infinite-movie'],
+        queryKey: ['infinite-movie', genre],
         queryFn: ({ pageParam }) => {
-            return fetchInfiniteMovies(pageParam)
+            return fetchInfiniteMovies({ page: pageParam, genre })
         },
         getNextPageParam: (last) => {
 
