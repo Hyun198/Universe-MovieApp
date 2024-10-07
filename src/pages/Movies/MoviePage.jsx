@@ -17,7 +17,7 @@ const MoviePage = () => {
     const keyword = query.get("q");
     const { data: genres } = useMovieGenreQuery();
     const { data, isLoading, error, isError } = useSearchMovieQuery({ keyword, page, genre: selectedGenre });
-    const { data: infiniteData, fetchNextPage, hasNextPage, isFetchingNextPage } = useGetInfinityMovies();
+    const { data: infiniteData, fetchNextPage, hasNextPage, isFetchingNextPage } = useGetInfinityMovies({ genre: selectedGenre });
     const { ref, inView } = useInView();
 
     useEffect(() => {
@@ -68,7 +68,7 @@ const MoviePage = () => {
         return <h1>Loading...</h1>;
     }
 
-    const movies = keyword ? data?.results : infiniteData?.pages.flatMap(page => page.data.results) || [];
+    const movies = keyword || selectedGenre ? data?.results : infiniteData?.pages.flatMap(page => page.data.results) || [];
 
 
     const sortedMovies = handleSortMovies([...movies], sortOrder);
@@ -111,7 +111,7 @@ const MoviePage = () => {
                         ))}
                     </Row>
 
-                    {!keyword && <h1 ref={ref}>Load more</h1>}
+                    {!keyword && <h1 ref={ref}>Load more...</h1>}
                 </Col>
 
             </Row>
