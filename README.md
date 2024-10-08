@@ -54,7 +54,7 @@
 
 - React-query를 이용해서 서버 상태관리
 - Redux를 이용한 데이터 전역관리 (Wish List)
-- React-query 의 useInfiniteQuery를 이용해 무한 스크롤로 영화들 보여주기(24.10.4~24.10.5)
+- React-query 의 useInfiniteQuery를 이용해 무한 스크롤로 MoviesPage, TvPage 보여주기(24.10.4~24.10.5)
 <!-- Getting Started -->
 
 ## Getting Started
