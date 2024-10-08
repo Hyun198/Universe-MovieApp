@@ -121,7 +121,6 @@ const MovieDetailPage = () => {
     };
 
     const AddMovieLikes = () => {
-
         dispatch({ type: "ADD_LIKE", payload: movie })
     }
 
@@ -138,6 +137,15 @@ const MovieDetailPage = () => {
 
     const videoKey = videos?.results?.[0]?.key;
 
+
+    const popularity_Label = (popularity) => {
+        const refined_popularity = Number(popularity).toFixed(1);
+        if (refined_popularity < 500) return '매우 낮음';
+        if (refined_popularity <= 500 && refined_popularity < 1500) return '낮음';
+        if (refined_popularity <= 1500 && refined_popularity < 3500) return '보통';
+        if (refined_popularity >= 3500 && refined_popularity < 4000) return '높음';
+        if (refined_popularity >= 4000) return '매우 높음';
+    }
 
     return (
         <Container>
@@ -207,7 +215,7 @@ const MovieDetailPage = () => {
 
 
                         </div>
-                        <div><FontAwesomeIcon icon={faFire} /> {movie.popularity}</div>
+                        <div><FontAwesomeIcon icon={faFire} /> {popularity_Label(movie.popularity)}</div>
                         <div><FontAwesomeIcon icon={faMoneyBill1} /> ${movie.budget.toLocaleString()}</div>
                         <div className="movie-overview">줄거리<br></br>
                             {movie.overview}
