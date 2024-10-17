@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './AppLayout.style.css'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
@@ -19,8 +20,8 @@ const AppLayout = () => {
             <div className='navbar'>
                 <Link to="/"><img src="https://cdn.freelogovectors.net/wp-content/uploads/2020/01/universe-logo.png" alt="logo" /></Link>
                 <ul>
-                    <li><Link to="/movies"># Movies</Link></li>
-                    <li><Link to="/tvs"># tv</Link></li>
+                    <li><Link to="/movies">영화</Link></li>
+                    <li><Link to="/tvs">시리즈</Link></li>
                     <li><Link to="/likes"><FontAwesomeIcon icon={faHeart} size="1.9x" color="white" /></Link></li>
                 </ul>
 
