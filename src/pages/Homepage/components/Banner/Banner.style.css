@@ -1,14 +1,16 @@
 .banner {
+    display: flex;
+    flex-direction: column;
     margin: 0 auto;
-    width: 45%;
-    aspect-ratio: 0.8;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
     border-radius: 10px;
-    border: 1px solid #fff;
+    background-color: #000;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
     scale: 0.8;
+}
+
+.banner-image {
+    border-radius: 10px 0 0 10px;
+    object-fit: cover;
 }
 
 .banner:before {
@@ -24,9 +26,20 @@
 }
 
 .banner-text-area {
-    position: relative;
-    top: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
     text-align: center;
+}
+
+.banner-text-area h1 {
+    color: white;
+}
+
+.banner-text-area p {
+    font-size: 20px;
+    color: white;
 }
 
 
