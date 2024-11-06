@@ -14,17 +14,14 @@ const TvPage = () => {
     const [sortOrder, setSortOrder] = useState('');
 
     const keyword = query.get("q");
-
+    const { ref, inView } = useInView();
     const { data, isLoading, error, isError } = useSearchTvQuery({ keyword, page });
     const { data: infiniteData, fetchNextPage, hasNextPage, isFetchingNextPage } = useGetInfinityTvs()
-    console.log("infi tv", infiniteData);
-    const { ref, inView } = useInView();
+
     useEffect(() => {
         if (inView && hasNextPage && !isFetchingNextPage) {
             fetchNextPage();
         }
-
-
     }, [inView])
 
     const handleSortTvs = (tvs, order) => {
@@ -54,8 +51,9 @@ const TvPage = () => {
         }
     }
 
-    const tvs = keyword ? data?.results : infiniteData?.pages.flatMap(page => page.data.results);
+    const tvs = keyword ? data?.results : infiniteData?.pages?.flatMap(page => page.data.results) || [];
 
+    console.log(tvs);
 
     const sortedTvs = handleSortTvs([...tvs], sortOrder);
 
