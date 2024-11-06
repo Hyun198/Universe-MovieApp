@@ -22,7 +22,7 @@ const AppLayout = () => {
                 <ul>
                     <li><Link to="/movies">영화</Link></li>
                     <li><Link to="/tvs">시리즈</Link></li>
-                    <li><Link to="/likes"><FontAwesomeIcon icon={faHeart} size="2x" color="white" /></Link></li>
+                    <li><Link to="/likes"><FontAwesomeIcon icon={faHeart} size="1x" color="white" /></Link></li>
                 </ul>
 
                 <div className="search-box">

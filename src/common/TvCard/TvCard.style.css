@@ -6,7 +6,10 @@
     cursor: pointer;
     transition: 0.5s;
     object-fit: cover;
-    margin: auto;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px black;
+
 }
 
 .overlay {

@@ -68,7 +68,7 @@ const MoviePage = () => {
         return <h1>Loading...</h1>;
     }
 
-    const movies = keyword ? data?.results : infiniteData?.pages.flatMap(page => page.data.results);
+    const movies = keyword ? data?.results : infiniteData?.pages?.flatMap(page => page.data.results) || [];
 
 
     const sortedMovies = handleSortMovies([...movies], sortOrder);

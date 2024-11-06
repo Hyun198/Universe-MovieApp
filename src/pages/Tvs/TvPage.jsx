@@ -52,9 +52,6 @@ const TvPage = () => {
     }
 
     const tvs = keyword ? data?.results : infiniteData?.pages?.flatMap(page => page.data.results) || [];
-
-    console.log(tvs);
-
     const sortedTvs = handleSortTvs([...tvs], sortOrder);
 
 
@@ -65,14 +62,12 @@ const TvPage = () => {
         return <h1>Loading...</h1>;
     }
 
-
-
     return (
         <Container>
             <Row className="all-side">
-                <Col className="left-side" lg={4} xs={6}>
+                <Col className="left-side" lg={4} xs={3}>
                     <Row>
-                        <Col xs={12}>
+                        <Col xs={6}>
                             <Dropdown >
                                 <Dropdown.Toggle id="dropdown-basic">
                                     {getSortOrderLabel()}
@@ -100,10 +95,6 @@ const TvPage = () => {
                     {!keyword && <h1 ref={ref}>Load more...</h1>}
                 </Col>
             </Row>
-
-
-
-
         </Container>
     )
 }
