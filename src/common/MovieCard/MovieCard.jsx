@@ -9,7 +9,6 @@ import { faStar, faFire } from '@fortawesome/free-solid-svg-icons';
 const MovieCard = ({ movie }) => {
     const navigate = useNavigate();
     const { data: genreData } = useMovieGenreQuery()
-
     const showGenre = (genreIdList, genres) => {
         if (!genreData) {
             return []; // genreData가 없으면 빈 배열 반환
